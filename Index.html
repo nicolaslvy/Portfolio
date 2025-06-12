@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicolas Ortiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="styles/styles.css">
+     <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,500,500i,600,600i,700,700i&subset=latin,cyrillic"
+    rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+      <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+ <style>
+    :root {
+      --primary-color: #007bff;
+      --secondary-color: #6c757d;
+      --dark-color: #343a40;
+      --light-color: #f8f9fa;
+       --accent-color: #28a745;
+      /* Verde, para contrastar */
+      --text-color: #444444; /* Color de texto general */
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #343a40;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Playfair Display', serif;
+      color: var(--dark-color);
+    }
+
+    .section-title h2 {
+      color: var(--primary-color) !important;
+    }
+
+    .bg-primary {
+      background-color: var(--primary-color) !important;
+    }
+
+    .text-primary {
+      color: var(--primary-color) !important;
+    }
+
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+
+    .btn-outline-light:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .progress-bar {
+      background-color: var(--primary-color) !important;
+    }
+
+    .icon-box .icon i {
+      color: var(--primary-color);
+    }
+
+    .icon-box:hover .title a {
+      color: var(--primary-color) !important;
+    }
+
+    .back-to-top {
+      background: var(--primary-color);
+      display: none;
+  transition: all 0.3s;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  z-index: 999;
+      width: 40px;
+    height: 40px;
+    }
+
+    .back-to-top:hover {
+      background: #0056b3;
+    }
+
+    .testimonial-item {
+      border-left: 5px solid var(--primary-color);
+    }
+
+    .testimonial-item .quote-icon-left,
+    .testimonial-item .quote-icon-right {
+      color: var(--primary-color);
+    }
+
+    /* Estilo para el texto con sombra que se vea bien sobre las partículas */
+    .text-shadow {
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Ajuste para que la sección hero ocupe el 100% de la altura de la ventana */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative; /* Necesario para que las partículas se posicionen correctamente */
+      overflow: hidden; /* Oculta cualquier desbordamiento de partículas */
+      background: linear-gradient(135deg, #007bff, #0056b3); /* Gradiente de fondo de respaldo */
+      padding-top: 58px; /* Espacio para la barra de navegación fija */
+    }
+
+    /* Asegurar que el contenido del hero esté por encima de las partículas */
+    #hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Estilos para el canvas de particles.js */
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: transparent; /* Fondo transparente para mostrar el gradiente */
+      background-image: url("");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50% 50%;
+      z-index: 0; /* Asegura que esté detrás del contenido */
+    }
+    
+    /* Media query para ajustar el padding en pantallas más pequeñas si es necesario */
+    @media (max-width: 991px) {
+      #hero {
+        padding-top: 58px; /* Ajusta este valor si tu navbar cambia de altura en móvil */
+      }
+    }
+
+    /* --- Estilos para la sección Sobre Mí (#about) --- */
+    #about {
+      background-color: var(--light-color); /* Fondo ligeramente gris para diferenciar */
+      padding: 80px 0; /* Espaciado interno */
+    }
+
+    #about .content h3 {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+
+    #about .content ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #about .content ul li {
+      padding-bottom: 10px;
+      display: flex;
+      align-items: flex-start; /* Alinea ícono y texto al inicio */
+    }
+
+    #about .content ul i {
+      font-size: 20px;
+      padding-right: 4px;
+      color: var(--primary-color);
+      line-height: 1;
+      margin-top: 4px; /* Ajuste vertical del icono */
+    }
+
+    #about .content p {
+      line-height: 1.8;
+      color: var(--text-color);
+    }
+
+    #about .img-fluid {
+      border-radius: 10px; /* Bordes ligeramente redondeados para la imagen */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave para la imagen */
+      transition: transform 0.3s ease;
+    }
+
+    #about .img-fluid:hover {
+      transform: translateY(-5px); /* Pequeño efecto hover */
+    }
+
+
+  #skills {
+  background-color: var(--light-color); /* Un fondo para diferenciarla */
+  padding: 80px 0;
+}
+
+#skills .skills-content .progress {
+  height: 20px; /* Altura de la barra de progreso */
+  background-color: #e9ecef; /* Color de fondo del track de la barra */
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 25px; /* Espacio entre barras */
+  position: relative;
+}
+
+#skills .skills-content .progress span.skill {
+  display: block;
+  color: var(--dark-color);
+  font-weight: 600;
+  padding: 0 10px;
+  text-align: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 1; /* Para asegurar que el texto esté sobre la barra */
+}
+
+#skills .skills-content .progress span.skill i {
+  float: right;
+  font-style: normal;
+  font-size: 0.9em;
+  color: var(--dark-color);
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#skills .skills-content .progress .progress-bar {
+  height: 100%;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  transition: width 1.5s ease-in-out; /* Transición para la animación de llenado */
+  position: relative;
+  overflow: hidden;
+}
+
+#skills .skills-content .progress .progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.1) 100%);
+  animation: progress-stripe 1.5s linear infinite; /* Animación de rayado sutil */
+  opacity: 0.3;
+  transform: translateX(-100%);
+}
+
+@keyframes progress-stripe {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* --- Estilos para la sección Servicios (#services) --- */
+#services {
+  padding: 80px 0;
+  background-color: var(--light-color); /* Fondo similar a About y Skills */
+}
+
+#services .icon-box {
+  border: 1px solid rgba(0, 0, 0, 0.05); /* Borde sutil para las tarjetas */
+  transition: all 0.3s ease-in-out;
+  background: #fff; /* Fondo blanco para las tarjetas */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra suave */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px; /* Ajuste de padding interno */
+  border-radius: 10px;
+  height: 100%; /* Asegura que todas las tarjetas tengan la misma altura */
+}
+
+#services .icon-box:hover {
+  border-color: var(--primary-color); /* Borde primario al hacer hover */
+  transform: translateY(-8px); /* Elevación sutil */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada al hover */
+}
+
+#services .icon-box .icon {
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+#services .icon-box .icon i {
+  font-size: 48px; /* Tamaño del icono */
+  color: var(--primary-color);
+  transition: 0.3s;
+}
+
+#services .icon-box .title {
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+#services .icon-box .title a {
+  color: var(--dark-color);
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 20px;
+}
+
+#services .icon-box .title a:hover {
+  color: var(--primary-color);
+}
+
+#services .icon-box .description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* --- Estilos para la sección Testimonios (#testimonials) --- */
+#testimonials {
+  padding: 80px 0;
+  background-color: var(--light-color); /* Fondo similar a otras secciones */
+}
+
+#testimonials .testimonial-item {
+  box-sizing: content-box;
+  text-align: center;
+  min-height: 320px; /* Altura mínima para que las tarjetas se vean bien */
+  background: #fff; /* Fondo blanco para cada testimonio */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08); /* Sombra suave */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#testimonials .testimonial-item .testimonial-img {
+  width: 90px;
+  border-radius: 50%;
+  margin: 0 auto 20px auto;
+  border: 6px solid #fff;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+#testimonials .testimonial-item h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--dark-color);
+  margin-bottom: 5px;
+}
+
+#testimonials .testimonial-item h4 {
+  font-size: 14px;
+  color: var(--secondary-color);
+  margin-bottom: 15px;
+}
+
+#testimonials .testimonial-item .quote-icon-left,
+#testimonials .testimonial-item .quote-icon-right {
+  color: var(--primary-color);
+  font-size: 26px;
+  line-height: 0;
+}
+
+#testimonials .testimonial-item .quote-icon-left {
+  margin-right: 5px;
+}
+
+#testimonials .testimonial-item .quote-icon-right {
+  margin-left: 5px;
+}
+
+#testimonials .testimonial-item p {
+  font-style: italic;
+  margin: 0 auto 15px auto;
+  max-width: 800px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.testimonials-slider .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
+
+.testimonials-slider .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: var(--light-color);
+  opacity: 1;
+  border: 1px solid var(--primary-color);
+}
+
+.testimonials-slider .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--primary-color);
+}
+
+/* --- Estilos para la sección Contacto (#contact) --- */
+#contact {
+  padding: 80px 0;
+  background-color: var(--light-color); /* Fondo similar a otras secciones */
+}
+
+#contact .info {
+  background: #fff;
+  padding: 30px;
+  width: 100%;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+}
+
+#contact .info .address,
+#contact .info .email,
+#contact .info .phone {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+#contact .info .icon-box {
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 50%;
+  margin-right: 15px;
+  transition: all 0.3s ease-in-out;
+}
+
+#contact .info div {
+  padding: 0 0 0 8px;
+}
+
+#contact .info h4 {
+  padding: 0;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--dark-color);
+}
+
+#contact .info p {
+  font-size: 14px;
+  margin-bottom: 0;
+  color: var(--text-color);
+}
+
+#contact .info iframe {
+  margin-top: 25px;
+}
+
+#contact .php-email-form {
+  width: 100%;
+  background: #fff;
+  padding: 30px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+}
+
+#contact .php-email-form .form-group {
+  margin-bottom: 20px;
+}
+
+#contact .php-email-form input,
+#contact .php-email-form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+  padding: 10px 15px;
+}
+
+#contact .php-email-form input:focus,
+#contact .php-email-form textarea:focus {
+  border-color: var(--primary-color);
+}
+
+#contact .php-email-form textarea {
+  min-height: 120px;
+}
+
+#contact .php-email-form .loading {
+  display: none;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+}
+
+#contact .php-email-form .error-message {
+  display: none;
+  color: #fff;
+  background: #ed3c0d;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+
+#contact .php-email-form .sent-message {
+  display: none;
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+#contact .php-email-form .text-center button[type="submit"] {
+  background: var(--primary-color);
+  border: 0;
+  padding: 10px 30px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+#contact .php-email-form .text-center button[type="submit"]:hover {
+  background: #0056b3;
+}
+
+
+/* Nuevos estilos para el footer (social links y buy me a coffee) */
+    #footer .social-links {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    #footer .social-links a {
+      font-size: 20px;
+      display: inline-block;
+      background: #495057; /* Un gris oscuro para los iconos */
+      color: #fff;
+      line-height: 1;
+      padding: 8px 0;
+      margin-right: 4px;
+      border-radius: 50%;
+      text-align: center;
+      width: 36px;
+      height: 36px;
+      transition: 0.3s;
+    }
+
+    #footer .social-links a:hover {
+      background: var(--primary-color); /* Color primario al pasar el ratón */
+      color: #fff;
+      text-decoration: none;
+    }
+
+    #footer .support-links {
+      margin-top: 15px;
+      font-size: 15px;
+    }
+
+    #footer .support-links a {
+      color: var(--light-color); /* Color claro para los enlaces de apoyo */
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    #footer .support-links a:hover {
+      color: var(--primary-color);
+    }
+  </style>
+
+
+  </style>
+</head>
+
+<header id="header" class="d-flex align-items-center bg-dark navbar-dark fixed-top shadow-sm">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1 class="text-white"><a href="index.html" data-i18n="header_logo_name" style="text-decoration: none !important;font-family: 'Poppins', sans-serif;">Nicolas Ortiz</a></h1>
+      </div>
+
+      <nav id="navbar" class="navbar navbar-expand-lg">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link scrollto active" data-bs-toggle="collapse" data-bs-target="#navbarNav" href="#hero" data-i18n="nav_home">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" data-bs-toggle="collapse" data-bs-target="#navbarNav" href="#about" data-i18n="nav_about">Sobre Mí</a>
+            </li>
+            <!-- <li class="nav-item"><a class="nav-link scrollto" href="#resume" data-i18n="nav_resume">Currículum</a></li> -->
+            <li class="nav-item"><a class="nav-link scrollto" data-bs-toggle="collapse" data-bs-target="#navbarNav" href="#services" data-i18n="nav_services">Servicios</a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" data-bs-toggle="collapse" data-bs-target="#navbarNav" href="#portfolio"
+                data-i18n="nav_portfolio">Portafolio</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" data-bs-toggle="collapse" data-bs-target="#navbarNav" href="#contact" data-i18n="nav_contact">Contacto</a></li>
+            <li class="nav-item ms-lg-3">
+              <button class="btn btn-outline-light btn-sm me-2" data-bs-toggle="collapse" data-bs-target="#navbarNav" data-lang-switch="es">
+  <img src="https://flagcdn.com/16x12/es.png" alt="ES" class="me-1"> ES
+</button>
+<button class="btn btn-outline-light btn-sm" data-lang-switch="en">
+  <img src="https://flagcdn.com/16x12/us.png" alt="EN" class="me-1"> EN
+</button>
+            </li>
+          </ul>
+        </div>
+        <i class="bi bi-list mobile-nav-toggle d-none text-white"></i>
+      </nav>
+    </div>
+  </header>
+  <!-- hero section -->
+  <section id="hero"
+    class="d-flex flex-column align-items-center justify-content-center text-center vh-100 position-relative overflow-hidden">
+    <div id="particles-js"></div>
+
+    <div class="container position-relative z-1">
+      <h1 data-i18n="hero_title" class="display-3 font-weight-bold text-white text-shadow animate__animated animate__fadeInDown"
+        style="animation-delay: 0.5s;">Hola, soy Nicolas Ortiz!</h1>
+      <h2 data-i18n="hero_subtitle" class="lead mt-3 text-white text-shadow animate__animated animate__fadeInUp"
+        style="animation-delay: 1s;">Soy un Desarrollador Full Stack Senior</h2>
+      <a href="#about"
+        class="btn btn-lg btn-outline-light mt-4 rounded-pill animate__animated animate__zoomIn"
+        style="animation-delay: 1.5s;"><i class="bi bi-chevron-double-down me-2"></i> <span
+          data-i18n="hero_button">Conoce más sobre mí</span></a>
+    </div>
+  </section>
+
+
+<main id="main">
+
+    <section id="about" class="about py-5 bg-light">
+        <div class="container">
+
+            <div class="row no-gutters align-items-center">
+                <div
+                    class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start mb-4 mb-xl-0">
+                    <img src="img/Profile.png" alt="Profile Image" class="img-fluid rounded-circle shadow-lg"
+                        style="max-width: 80%;">
+                </div>
+                <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
+                    <div class="content d-flex flex-column justify-content-center">
+                        <h3 data-i18n="about_title" class="mb-4">Desarrollador Senior apasionado por la innovación y la
+                            eficiencia.</h3>
+                        <p data-i18n="about_description" class="lead">
+                            Con más de 10 años de experiencia en el desarrollo de software, me especializo en la
+                            creación de soluciones robustas y escalables, utilizando las últimas tecnologías y
+                            metodologías ágiles. Mi enfoque está en entregar valor a través de código limpio, eficiente
+                            y bien documentado.
+                        </p>
+                        <div class="row mt-4">
+                            <div class="col-md-6 d-md-flex align-items-md-stretch mb-3">
+                                <div class="count-box bg-white p-4 rounded shadow-sm w-100">
+                                    <i class="bi bi-emoji-smile text-primary fs-3 mb-2"></i>
+                                    <span data-purecounter-start="0" data-purecounter-end="25"
+                                        data-purecounter-duration="1"
+                                        class="purecounter display-4 fw-bold text-primary"></span>
+                                    <p data-i18n="about_happy_clients"><strong>Clientes Satisfechos</strong> que avalan
+                                        mi compromiso y calidad en cada proyecto.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 d-md-flex align-items-md-stretch mb-3">
+                                <div class="count-box bg-white p-4 rounded shadow-sm w-100">
+                                    <i class="bi bi-journal-richtext text-primary fs-3 mb-2"></i>
+                                    <span data-purecounter-start="0" data-purecounter-end="60"
+                                        data-purecounter-duration="1"
+                                        class="purecounter display-4 fw-bold text-primary"></span>
+                                    <p data-i18n="about_projects"><strong>Proyectos Completados</strong> con éxito,
+                                        desde startups hasta grandes empresas.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 d-md-flex align-items-md-stretch mb-3">
+                                <div class="count-box bg-white p-4 rounded shadow-sm w-100">
+                                    <i class="bi bi-clock text-primary fs-3 mb-2"></i>
+                                    <span data-purecounter-start="0" data-purecounter-end="5"
+                                        data-purecounter-duration="1"
+                                        class="purecounter display-4 fw-bold text-primary"></span>
+                                    <p data-i18n="about_years_experience"><strong>Años de Experiencia</strong>
+                                        consolidando conocimientos y habilidades en el sector tecnológico.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 d-md-flex align-items-md-stretch mb-3">
+                                <div class="count-box bg-white p-4 rounded shadow-sm w-100">
+                                    <i class="bi bi-award text-primary fs-3 mb-2"></i>
+                                    <span data-purecounter-start="0" data-purecounter-end="5"
+                                        data-purecounter-duration="1"
+                                        class="purecounter display-4 fw-bold text-primary"></span>
+                                    <p data-i18n="about_awards"><strong>Reconocimientos y Certificaciones</strong> que
+                                        demuestran mi expertise y dedicación.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Skills -->
+    <section id="skills" class="skills section-bg py-5">
+  <div class="container">
+
+    <div class="section-title text-center mb-5">
+      <h2 data-i18n="skills_title" class="fw-bold text-primary">Habilidades</h2>
+      <p data-i18n="skills_description" class="lead">Mis habilidades técnicas abarcan un amplio espectro del
+        desarrollo web, con un enfoque en la creación de aplicaciones eficientes y escalables. Me mantengo
+        actualizado con las últimas tendencias y tecnologías para ofrecer las mejores soluciones.</p>
+    </div>
+
+    <div class="row skills-content">
+
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="progress mb-4">
+          <span class="skill" data-i18n="skill_html">HTML <i class="val">100%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+              aria-valuemax="100">
+            </div>
+          </div>
+        </div>
+
+        <div class="progress mb-4">
+          <span class="skill" data-i18n="skill_css">CSS <i class="val">90%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+              aria-valuemax="100">
+            </div>
+          </div>
+        </div>
+
+        <div class="progress mb-4">
+          <span class="skill" data-i18n="skill_javascript">JavaScript <i class="val">95%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="95" aria-valuemin="0"
+              aria-valuemax="100">
+            </div>
+          </div>
+        </div>
+
+        <div class="progress mb-4">
+          <span class="skill" data-i18n="skill_angular_react">Angular/React <i class="val">90%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+              aria-valuemax="100">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+
+        <div class="progress mb-4">
+          <span class="skill" data-i18n="skill_csharp_net">C# .NET <i class="val">85%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="85" aria-valuemin="0"
+              aria-valuemax="100">
+            </div>
+          </div>
+        </div>
+
+        <div class="progress mb-4">
+          <span class="skill" data-i18n="skill_nodejs_python">Node.js/Python <i class="val">80%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+              aria-valuemax="100">
+            </div>
+          </div>
+        </div>
+
+        <div class="progress mb-4">
+          <span class="skill" data-i18n="skill_databases">Bases de Datos (SQL/NoSQL) <i class="val">80%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+              aria-valuemax="100">
+            </div>
+          </div>
+        </div>
+
+        <div class="progress mb-4">
+          <span class="skill" data-i18n="skill_cloud_devops">Cloud/DevOps <i class="val">75%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+              aria-valuemax="100">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+    </section>
+
+    <!-- curriculum -->
+    <section id="resume" class="resume section-bg py-5 d-none">
+        <div class="container">
+
+            <div class="section-title text-center mb-5">
+                <h2 data-i18n="resume_title" class="fw-bold text-primary">Currículum</h2>
+                <p data-i18n="resume_description" class="lead">Mi trayectoria profesional se ha centrado en el
+                    desarrollo de software, colaborando en proyectos de alto impacto y liderando equipos para alcanzar
+                    objetivos ambiciosos. Aquí un resumen de mi experiencia y formación.</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3 class="resume-title" data-i18n="resume_summary_heading">Resumen</h3>
+                    <div class="resume-item pb-0 border-start border-primary border-3 ps-3 mb-4">
+                        <h4 data-i18n="resume_summary_name" class="fw-bold text-secondary">Nicolas Ortiz</h4>
+                        <p><em data-i18n="resume_summary_bio">Desarrollador Full Stack Senior con más de 10 años de
+                                experiencia en el diseño, desarrollo y despliegue de aplicaciones web robustas y
+                                escalables. Experto en tecnologías front-end y back-end, con un fuerte liderazgo y
+                                capacidad de resolución de problemas.</em></p>
+                        <p>
+                        <ul>
+                            <li data-i18n="resume_summary_address">Bogotá, Colombia</li>
+                            <li data-i18n="resume_summary_phone">+57 3XX XXX XXXX</li>
+                            <li data-i18n="resume_summary_email">nicolas.ortiz@example.com</li>
+                        </ul>
+                        </p>
+                    </div>
+
+                    <h3 class="resume-title" data-i18n="resume_education_heading">Educación</h3>
+                    <div class="resume-item border-start border-primary border-3 ps-3 mb-4">
+                        <h4 data-i18n="resume_education_master_degree">Maestría en Ingeniería de Software</h4>
+                        <h5 data-i18n="resume_education_master_years">2018 - 2020</h5>
+                        <p><em><span data-i18n="resume_education_master_university">Universidad de los Andes, Bogotá,
+                                    Colombia</span></em></p>
+                        <p data-i18n="resume_education_master_description">Enfoque en arquitecturas de microservicios,
+                            DevOps y desarrollo de software distribuido. Proyecto final: Sistema de gestión de
+                            inventario en tiempo real.</p>
+                    </div>
+                    <div class="resume-item border-start border-primary border-3 ps-3 mb-4">
+                        <h4 data-i18n="resume_education_bachelor_degree">Ingeniería de Sistemas y Computación</h4>
+                        <h5 data-i18n="resume_education_bachelor_years">2009 - 2014</h5>
+                        <p><em><span data-i18n="resume_education_bachelor_university">Universidad Nacional de Colombia,
+                                    Bogotá, Colombia</span></em></p>
+                        <p data-i18n="resume_education_bachelor_description">Estudios en algoritmos, estructuras de
+                            datos, bases de datos y desarrollo de aplicaciones. Proyecto de grado: Plataforma e-learning
+                            interactiva.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="resume-title" data-i18n="resume_experience_heading">Experiencia Profesional</h3>
+                    <div class="resume-item border-start border-primary border-3 ps-3 mb-4">
+                        <h4 data-i18n="resume_experience_senior_role">Lead Software Engineer</h4>
+                        <h5 data-i18n="resume_experience_senior_years">2021 - Presente</h5>
+                        <p><em><span data-i18n="resume_experience_senior_company">Tech Innovators Inc., Bogotá,
+                                    Colombia</span> </em></p>
+                        <p>
+                        <ul>
+                            <li data-i18n="resume_experience_senior_responsibility_1">Liderar el diseño y la
+                                implementación de arquitecturas de software escalables para nuevas plataformas.</li>
+                            <li data-i18n="resume_experience_senior_responsibility_2">Gestionar un equipo de 5
+                                desarrolladores, mentorizando y guiando en las mejores prácticas de desarrollo.</li>
+                            <li data-i18n="resume_experience_senior_responsibility_3">Optimizar el rendimiento de la
+                                aplicación, reduciendo los tiempos de respuesta en un 30%.</li>
+                            <li data-i18n="resume_experience_senior_responsibility_4">Implementar CI/CD pipelines,
+                                mejorando la frecuencia de despliegue en un 50%.</li>
+                        </ul>
+                        </p>
+                    </div>
+                    <div class="resume-item border-start border-primary border-3 ps-3 mb-4">
+                        <h4 data-i18n="resume_experience_mid_role">Desarrollador Full Stack</h4>
+                        <h5 data-i18n="resume_experience_mid_years">2014 - 2020</h5>
+                        <p><em><span data-i18n="resume_experience_mid_company">Global Solutions Corp., Bogotá,
+                                    Colombia</span></em></p>
+                        <p>
+                        <ul>
+                            <li data-i18n="resume_experience_mid_responsibility_1">Desarrollo de módulos front-end con
+                                React y back-end con Node.js para sistemas empresariales.</li>
+                            <li data-i18n="resume_experience_mid_responsibility_2">Integración con APIs externas y
+                                servicios de terceros para funcionalidades avanzadas.</li>
+                            <li data-i18n="resume_experience_mid_responsibility_3">Participación en la migración de
+                                sistemas legacy a nuevas arquitecturas basadas en la nube.</li>
+                            <li data-i18n="resume_experience_mid_responsibility_4">Colaboración en la definición de
+                                requisitos y diseño de soluciones con equipos multidisciplinares.</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- services  -->
+
+    <section id="services" class="services py-5">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title text-center mb-5">
+      <h2 data-i18n="services_title" class="fw-bold text-primary">Servicios</h2>
+      <p data-i18n="services_description" class="lead">Ofrezco una gama completa de servicios de desarrollo de
+        software, desde la conceptualización hasta el despliegue y mantenimiento, asegurando soluciones de alta
+        calidad y adaptadas a las necesidades de cada cliente.</p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="icon-box bg-white p-4 rounded shadow-sm w-100 text-center">
+          <div class="icon mb-3"><i class="bx bxl-dribbble text-primary fs-1"></i></div>
+          <h4 class="title"><a href="" data-i18n="service_web_development_title" class="text-primary">Desarrollo Web
+              Full Stack</a></h4>
+          <p class="description" data-i18n="service_web_development_description">Creación de aplicaciones web
+            completas y dinámicas, cubriendo tanto el front-end (React, Angular, Vue) como el back-end (Node.js,
+            Python, Java) con bases de datos robustas.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="icon-box bg-white p-4 rounded shadow-sm w-100 text-center">
+          <div class="icon mb-3"><i class="bx bx-file text-primary fs-1"></i></div>
+          <h4 class="title"><a href="" data-i18n="service_api_design_title" class="text-primary">Diseño y
+              Desarrollo de APIs</a></h4>
+          <p class="description" data-i18n="service_api_design_description">Construcción de APIs RESTful y GraphQL
+            seguras y eficientes, facilitando la comunicación entre diferentes sistemas y servicios.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="zoom-in" data-aos-delay="300">
+        <div class="icon-box bg-white p-4 rounded shadow-sm w-100 text-center">
+          <div class="icon mb-3"><i class="bx bx-tachometer text-primary fs-1"></i></div>
+          <h4 class="title"><a href="" data-i18n="service_cloud_solutions_title" class="text-primary">Soluciones
+              Cloud y DevOps</a></h4>
+          <p class="description" data-i18n="service_cloud_solutions_description">Implementación de soluciones en la
+            nube (AWS, Azure, GCP) y automatización de despliegues (CI/CD) para garantizar la escalabilidad y
+            disponibilidad.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="icon-box bg-white p-4 rounded shadow-sm w-100 text-center">
+          <div class="icon mb-3"><i class="bx bx-world text-primary fs-1"></i></div>
+          <h4 class="title"><a href="" data-i18n="service_database_management_title" class="text-primary">Gestión de
+              Bases de Datos</a></h4>
+          <p class="description" data-i18n="service_database_management_description">Diseño, optimización y
+            administración de bases de datos relacionales (SQL) y no relacionales (NoSQL) para un manejo eficiente
+            de la información.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="icon-box bg-white p-4 rounded shadow-sm w-100 text-center">
+          <div class="icon mb-3"><i class="bx bx-slideshow text-primary fs-1"></i></div>
+          <h4 class="title"><a href="" data-i18n="service_legacy_modernization_title"
+              class="text-primary">Modernización de Sistemas Legacy</a></h4>
+          <p class="description" data-i18n="service_legacy_modernization_description">Actualización y migración de
+            sistemas antiguos a tecnologías modernas, mejorando su rendimiento, seguridad y mantenibilidad.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="zoom-in" data-aos-delay="300">
+        <div class="icon-box bg-white p-4 rounded shadow-sm w-100 text-center">
+          <div class="icon mb-3"><i class="bx bx-arch text-primary fs-1"></i></div>
+          <h4 class="title"><a href="" data-i18n="service_technical_consulting_title" class="text-primary">Consultoría
+              Técnica y Arquitectura</a></h4>
+          <p class="description" data-i18n="service_technical_consulting_description">Asesoramiento experto en
+            arquitectura de software, selección de tecnologías y mejores prácticas para el desarrollo de proyectos
+            complejos.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+    </section>
+
+    <!-- portfolio -->
+    <section id="portfolio" class="portfolio section-bg py-5">
+  <div class="container">
+    <div class="section-title text-center mb-5">
+      <h2 class="fw-bold text-primary" data-i18n="portfolio_title">Portafolio</h2>
+      <p class="lead" data-i18n="portfolio_description">Una muestra de mis tres proyectos destacados.</p>
+    </div>
+
+    <!-- Slider principal -->
+    <div class="swiper portfolio-slider">
+      <div class="swiper-wrapper">
+
+        <!-- Proyecto 1: Administración de Propiedad Horizontal -->
+        <div class="swiper-slide">
+          <div class="portfolio-wrap border rounded overflow-hidden">
+            <img src="img/Residential.png" class="img-fluid d-block mx-auto" alt="">
+            <div class="portfolio-info p-3 bg-white text-center">
+              <h4 data-i18n="portfolio_prop_title">Panel de Administración PH</h4>
+              <p data-i18n="portfolio_prop_category">Aplicación Web</p>
+              <div class="portfolio-links mt-2">
+                <a href="img/Residential.png" class="portfolio-lightbox" data-gallery="portfolioGallery" title="Panel de Administración PH">
+                  <i class="bx bx-plus text-primary fs-4"></i>
+                </a>
+                <a href="#" title="Más Detalles">
+                  <i class="bx bx-link text-primary fs-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 2: App para Residentes -->
+        <div class="swiper-slide">
+          <div class="portfolio-wrap border rounded overflow-hidden">
+            <img src="img/ResidentApps.png" class="img-fluid d-block mx-auto" alt="">
+            <div class="portfolio-info p-3 bg-white text-center">
+              <h4 data-i18n="portfolio_resident_title">App Móvil para Residentes</h4>
+              <p data-i18n="portfolio_resident_category">Aplicación Móvil</p>
+              <div class="portfolio-links mt-2">
+                <a href="img/ResidentApps.png" class="portfolio-lightbox" data-gallery="portfolioGallery" title="App Móvil para Residentes">
+                  <i class="bx bx-plus text-primary fs-4"></i>
+                </a>
+                <a href="#" title="Más Detalles">
+                  <i class="bx bx-link text-primary fs-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 3: POS o eCommerce -->
+        <div class="swiper-slide">
+          <div class="portfolio-wrap border rounded overflow-hidden">
+            <img src="img/PostSystem.png" class="img-fluid d-block mx-auto" alt="">
+            <div class="portfolio-info p-3 bg-white text-center">
+              <h4 data-i18n="portfolio_pos_title">Sistema POS / E-commerce</h4>
+              <p data-i18n="portfolio_pos_category">Aplicación Web</p>
+              <div class="portfolio-links mt-2">
+                <a href="img/PostSystem.png" class="portfolio-lightbox" data-gallery="portfolioGallery" title="Sistema POS / E-commerce">
+                  <i class="bx bx-plus text-primary fs-4"></i>
+                </a>
+                <a href="#" title="Más Detalles">
+                  <i class="bx bx-link text-primary fs-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Controles del slider -->
+      <div class="swiper-pagination swiper-pagination-portfolio mt-4"></div>
+    </div>
+  </div>
+</section>
+
+    <!-- testimonials  -->
+    <section id="testimonials" class="testimonials section-bg py-5">
+     <div class="container" data-aos="fade-up">
+
+    <div class="section-title text-center mb-5">
+      <h2 data-i18n="testimonials_title" class="fw-bold text-primary">Testimonios</h2>
+      <p data-i18n="testimonials_description" class="lead">Lo que mis clientes y colaboradores dicen sobre mi
+        trabajo y dedicación. Su satisfacción es mi mayor motivación.</p>
+    </div>
+
+    <div class="swiper testimonials-slider " data-aos="fade-up" data-aos-delay="100">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="testimonial-item bg-white p-4 rounded shadow-sm">
+            <p class="mb-3">
+              <i class="bx bxs-quote-alt-left quote-icon-left text-primary fs-4 me-2"></i>
+              <span data-i18n="testimonial_1_quote">Nicolas es un desarrollador excepcional. Su capacidad para
+                resolver problemas complejos y su atención al detalle son inigualables. Ha sido clave en el éxito de
+                nuestro proyecto.</span>
+              <i class="bx bxs-quote-alt-right quote-icon-right text-primary fs-4 ms-2"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img rounded-circle mb-3"
+              alt="">
+            <h3 data-i18n="testimonial_1_name">Sara Johnson</h3>
+            <h4 data-i18n="testimonial_1_role">CEO de Innovate Solutions</h4>
+          </div>
+        </div><div class="swiper-slide">
+          <div class="testimonial-item bg-white p-4 rounded shadow-sm">
+            <p class="mb-3">
+              <i class="bx bxs-quote-alt-left quote-icon-left text-primary fs-4 me-2"></i>
+              <span data-i18n="testimonial_2_quote">Trabajar con Nicolas ha sido una experiencia muy gratificante.
+                Su conocimiento técnico y su habilidad para comunicarse claramente hacen que la colaboración sea
+                fluida y eficiente.</span>
+              <i class="bx bxs-quote-alt-right quote-icon-right text-primary fs-4 ms-2"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img rounded-circle mb-3"
+              alt="">
+            <h3 data-i18n="testimonial_2_name">Michael Chen</h3>
+            <h4 data-i18n="testimonial_2_role">CTO de Global Tech</h4>
+          </div>
+        </div><div class="swiper-slide">
+          <div class="testimonial-item bg-white p-4 rounded shadow-sm">
+            <p class="mb-3">
+              <i class="bx bxs-quote-alt-left quote-icon-left text-primary fs-4 me-2"></i>
+              <span data-i18n="testimonial_3_quote">La experiencia de Nicolas en la modernización de sistemas legacy
+                fue justo lo que necesitábamos. Logró una transición impecable y un rendimiento superior al
+                esperado.</span>
+              <i class="bx bxs-quote-alt-right quote-icon-right text-primary fs-4 ms-2"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img rounded-circle mb-3"
+              alt="">
+            <h3 data-i18n="testimonial_3_name">Emily White</h3>
+            <h4 data-i18n="testimonial_3_role">Directora de Proyectos, FinTech Group</h4>
+          </div>
+        </div><div class="swiper-slide">
+          <div class="testimonial-item bg-white p-4 rounded shadow-sm">
+            <p class="mb-3">
+              <i class="bx bxs-quote-alt-left quote-icon-left text-primary fs-4 me-2"></i>
+              <span data-i18n="testimonial_4_quote">Su liderazgo técnico y su capacidad para guiar al equipo fueron
+                fundamentales. Nicolas no solo entrega código de calidad, sino que también eleva el nivel de todo el
+                equipo.</span>
+              <i class="bx bxs-quote-alt-right quote-icon-right text-primary fs-4 ms-2"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img rounded-circle mb-3"
+              alt="">
+            <h3 data-i18n="testimonial_4_name">David Green</h3>
+            <h4 data-i18n="testimonial_4_role">Lead Developer, SoftCorp</h4>
+          </div>
+        </div></div>
+      <div class="swiper-pagination swiper-pagination-testimonials"></div>
+    </div>
+
+  </div>
+    </section>
+
+<!-- contact form -->
+
+    <section id="contact" class="contact section-bg py-5">
+    <div class="container" data-aos="fade-up">
+
+    <div class="section-title text-center mb-5">
+      <h2 data-i18n="contact_title" class="fw-bold text-primary">Contacto</h2>
+      <p data-i18n="contact_description" class="lead">¿Tienes una idea o un proyecto en mente? No dudes en
+        contactarme. Estoy disponible para discutir cómo mis habilidades pueden ayudarte a lograr tus objetivos.</p>
+    </div>
+
+    <div class="row">
+
+      <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right" data-aos-delay="100">
+        <div class="info bg-white p-4 rounded shadow-sm">
+          <div class="address mb-3 d-flex align-items-center">
+            <i class="bi bi-geo-alt icon-box text-light rounded-circle p-2 me-3 fs-5 bg-primary"></i>
+            <div>
+              <h4 data-i18n="contact_location_heading" class="mb-0">Ubicación:</h4>
+              <p data-i18n="contact_location_address">Bogotá, Colombia</p>
+            </div>
+          </div>
+
+          <div class="email mb-3 d-flex align-items-center">
+            <i class="bi bi-envelope icon-box text-light rounded-circle p-2 me-3 fs-5 bg-primary"></i>
+            <div>
+              <h4 data-i18n="contact_email_heading" class="mb-0">Email:</h4>
+              <p data-i18n="contact_email_address">nicolasortiz2774@gmail.com</p>
+            </div>
+          </div>
+
+          <!-- <div class="phone mb-3 d-flex align-items-center">
+            <i class="bi bi-phone icon-box text-light rounded-circle p-2 me-3 fs-5 bg-primary"></i>
+            <div>
+              <h4 data-i18n="contact_phone_heading" class="mb-0">Teléfono:</h4>
+              <p data-i18n="contact_phone_number">+57 3XX XXX XXXX</p>
+            </div>
+          </div> -->
+
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15906.91102558509!2d-74.08639207000858!3d4.654763198083863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a7620d87a93%3A0x6b7b2b2b2b2b2b2b!2sBogot%C3%A1%2C%20Colombia!5e0!3m2!1ses!2sco!4v1678897534567!5m2!1ses!2sco"
+            frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+        <form action="https://formsubmit.co/nicolasortiz2774@gmail.com" method="POST" role="form"
+          class="php-email-form bg-white p-4 rounded shadow-sm">
+          <div class="row">
+            <!-- Opcional: evitar spam -->
+          <input type="text" name="_honey" style="display:none">
+          <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://tusitio.github.io/gracias.html">
+
+            <div class="col-md-6 form-group mb-3">
+              <input type="text" name="name" class="form-control" id="name"
+                data-i18n="contact_form_name_placeholder" placeholder="Name" required>
+            </div>
+            <div class="col-md-6 form-group mb-3">
+              <input type="email" class="form-control" name="email" id="email"
+                data-i18n="contact_form_email_placeholder" placeholder="Email" required>
+            </div>
+          </div>
+          <div class="form-group mb-3">
+            <input type="text" class="form-control" name="subject" id="subject"
+              data-i18n="contact_form_subject_placeholder" placeholder="Subject" required>
+          </div>
+          <div class="form-group mb-3">
+            <textarea class="form-control" name="message" rows="5"
+              data-i18n="contact_form_message_placeholder" placeholder="" required></textarea>
+          </div>
+          <div class="my-3">
+            <div class="loading" data-i18n="contact_form_loading">Cargando</div>
+            <div class="error-message" data-i18n="contact_form_error"></div>
+            <div class="sent-message" data-i18n="contact_form_sent">Tu mensaje ha sido enviado. ¡Gracias!</div>
+          </div>
+          <div class="text-center"><button type="submit" class="btn btn-primary rounded-pill px-4"
+              data-i18n="contact_form_submit_button">Enviar Mensaje</button></div>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+    </section>
+</main>
+
+
+  <footer id="footer" class="bg-dark text-white py-4">
+    <div class="container text-center">
+      <div class="social-links mb-3">
+        <a href="https://x.com/NicolsOrti63999" class="twitter"><i class="bi bi-twitter"></i></a>
+        <!-- <a href="#" class="facebook"><i class="bi bi-facebook"></i></a> -->
+        <a href="https://www.instagram.com/nicolasortiz3574?igsh=MXcxZ3NsYmczYmFkbA==" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/nicol%C3%A1s-ortiz-46505b347/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/nicolaslvy" class="github"><i class="bi bi-github"></i></a>
+      </div>
+      <div class="copyright mb-2">
+        © Copyright <strong><span data-i18n="footer_copyright_name">Nicolas Ortiz</span></strong>. <span
+          data-i18n="footer_all_rights_reserved">Todos los derechos reservados</span>
+      </div>
+      <div class="support-links">
+        <a href="#" data-i18n="footer_support_paypal">Apóyame vía PayPal</a> |
+        <a href="#" data-i18n="footer_support_buymeacoffee">Invítame un Café</a>
+      </div>
+      <div class="credits">
+        Designed by <a href="#" style="text-decoration: none !important; font-weight: 900;" class="text-light">Nicolas Ortiz 🌊</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#"
+    class="back-to-top d-flex align-items-center justify-content-center bg-primary text-white rounded-circle"><i
+        class="bi bi-arrow-up-short" style="font-size: 38px !important;"></i>
+  </a>
+
+<!-- PureCounter -->
+<script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"></script>
+
+<!-- Bootstrap Bundle (incluye Popper) -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoK+HU6W5rZlAO5pVbQ+qE93ka8nN1z1rG5nJEJQZB8AU60"
+    crossorigin="anonymous"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- GLightbox -->
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+<!-- Isotope -->
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+<!-- Swiper -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<!-- Waypoints (No Framework) -->
+<script src="https://cdn.jsdelivr.net/npm/waypoints/lib/noframework.waypoints.min.js"></script>
+
+
+<script src="js/i18n.js"></script>
+
+<script src="js/main.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    /* Configuración de particles.js */
+    particlesJS('particles-js', {
+      "particles": {
+        "number": {
+          "value": 80, /* Cantidad de partículas */
+          "density": {
+            "enable": true,
+            "value_area": 800 /* Área de densidad */
+          }
+        },
+        "color": {
+          "value": "#ffffff" /* Color de las partículas (blanco) */
+        },
+        "shape": {
+          "type": "circle", /* Forma de las partículas (círculos) */
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false,
+          "anim": {
+            "enable": false
+          }
+        },
+        "size": {
+          "value": 3, /* Tamaño de las partículas */
+          "random": true,
+          "anim": {
+            "enable": false
+          }
+        },
+        "line_linked": {
+          "enable": true, /* Habilita las líneas entre partículas */
+          "distance": 150, /* Distancia para enlazar */
+          "color": "#ffffff", /* Color de las líneas (blanco) */
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 6, /* Velocidad de movimiento */
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "grab" /* Efecto al pasar el ratón (agarrar/empujar) */
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push" /* Efecto al hacer click (crear más partículas) */
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 140,
+            "line_linked": {
+              "opacity": 1
+            }
+          },
+          "bubble": {
+            "distance": 400,
+            "size": 40,
+            "duration": 2,
+            "opacity": 8,
+            "speed": 3
+          },
+          "repulse": {
+            "distance": 200,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+
+
+<body>
+
+</body>
+
+</html>

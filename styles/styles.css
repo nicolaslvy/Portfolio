@@ -1,0 +1,164 @@
+
+    :root {
+      --primary-color: #000080; /* Navy Blue */
+      --secondary-color: #0056b3; /* A slightly lighter blue for accents */
+      --text-color: #333;
+      --light-text-color: #f8f9fa;
+      --background-color: #ffffff;
+      --section-bg-color: #f8f9fa;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text-color);
+      background-color: var(--background-color);
+    }
+
+    /* Hero Section */
+    #hero {
+      background: linear-gradient(rgba(0, 0, 128, 0.6), rgba(0, 0, 128, 0.8)), url("../img/hero-bg.jpg") center top;
+      background-size: cover;
+      position: relative;
+      color: var(--light-text-color);
+    }
+
+    #hero h1 {
+      color: var(--light-text-color);
+    }
+
+    #hero h2 {
+      color: var(--light-text-color);
+    }
+
+    .btn-get-started {
+      background: var(--secondary-color);
+      border: 0;
+      padding: 10px 30px;
+      color: #fff;
+      transition: 0.4s;
+      border-radius: 50px;
+    }
+
+    .btn-get-started:hover {
+      background: var(--primary-color);
+    }
+
+    /* Header */
+    #header {
+      background: var(--primary-color);
+      transition: all 0.5s;
+      z-index: 997;
+      padding: 15px 0;
+    }
+
+    #header .logo h1 {
+      font-size: 30px;
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    #header .logo h1 a,
+    #header .logo h1 a:hover {
+      color: var(--light-text-color);
+      text-decoration: none;
+    }
+
+    .navbar a {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .navbar .active,
+    .navbar a:hover {
+      color: var(--light-text-color);
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 0;
+      overflow: hidden;
+    }
+
+    .section-bg {
+      background-color: var(--section-bg-color);
+    }
+
+    .section-title h2 {
+      color: var(--primary-color);
+    }
+
+    .section-title p {
+      color: var(--text-color);
+    }
+
+    /* Services, Resume, Portfolio, Testimonials, Contact */
+    .icon-box .icon i {
+      color: var(--primary-color);
+    }
+
+    .icon-box h4 a {
+      color: var(--primary-color);
+    }
+
+    .resume .resume-title {
+      color: var(--primary-color);
+    }
+
+    .resume .resume-item h4 {
+      color: var(--secondary-color);
+    }
+
+    .portfolio #portfolio-flters li {
+      color: var(--text-color);
+      background: #f2f2f2;
+    }
+
+    .portfolio #portfolio-flters li:hover,
+    .portfolio #portfolio-flters li.filter-active {
+      background: var(--secondary-color);
+      color: #fff;
+    }
+
+    .testimonials .testimonial-item {
+      background-color: var(--background-color);
+      border: 1px solid #eee;
+    }
+
+    .testimonials .quote-icon-left,
+    .testimonials .quote-icon-right {
+      color: var(--secondary-color);
+    }
+
+    .contact .info .icon {
+      background: var(--primary-color);
+      color: var(--light-text-color);
+    }
+
+    .contact .php-email-form button[type="submit"] {
+      background: var(--primary-color);
+      border: 0;
+      padding: 10px 24px;
+      color: #fff;
+      transition: 0.4s;
+      border-radius: 4px;
+    }
+
+    .contact .php-email-form button[type="submit"]:hover {
+      background: var(--secondary-color);
+    }
+
+    /* Footer */
+    #footer {
+      background: var(--primary-color);
+      color: var(--light-text-color);
+    }
+
+    #footer .copyright {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    #footer .credits a {
+      color: var(--light-text-color);
+    }
